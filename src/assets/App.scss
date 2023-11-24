@@ -1,0 +1,85 @@
+@mixin FlexBox($dir) {
+    display: flex;
+    flex-direction: $dir;
+}
+
+$background: linear-gradient(19deg, #339966 0%, #147283 100%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.line {
+    background: #339966;
+    height: 4px;
+    width: 60px;
+    top: -15%;
+    position: relative;
+    border-radius: 20px;
+}
+
+.empty-line {
+    background: gray;
+    height: 4px;
+    width: 60px;
+    top: -15%;
+    position: relative;
+    border-radius: 20px;
+}
+
+.container {
+    background: $background;
+    height: 100vh;
+    width: 100%;
+    @include FlexBox(column);
+    justify-content: center;
+    align-items: center;
+}
+
+.wizard {
+    @include FlexBox(row);
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+    background: #fff;
+    height: 120px;
+    padding: 20px;
+    border-radius: 10px;
+
+    &-item {
+        @include FlexBox(column);
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+
+
+        img {
+            width: 50px;
+            border: 2px solid black;
+            border-radius: 100%;
+            padding: 10px;
+        }
+
+        &-check {
+
+            color: #339966;
+        }
+
+        &-txt {
+            margin-top: 5px;
+        }
+    }
+
+}
+
